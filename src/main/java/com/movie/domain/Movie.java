@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -36,6 +38,12 @@ public class Movie {
 	
 	@ManyToMany(mappedBy="movies")
 	private List<Artist> artist;
+	
+	@Enumerated(EnumType.STRING)
+	private Rating rating;
+	
+	@Enumerated(EnumType.STRING)
+	private Genre genre;
 	
 
 }
