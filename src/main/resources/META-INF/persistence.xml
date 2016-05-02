@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 <persistence-unit name="com.movie.domain">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.movie.domain.Artist</class>
+		<class>com.movie.domain.Director</class>
+		<class>com.movie.domain.Movie</class>
+		<class>com.movie.domain.ArtistCharacter</class>
+		<class>com.movie.domain.Comment</class>
 		<class>com.movie.domain.Person</class>
-
+		<class>com.movie.domain.User</class>
 		<properties>
-			<property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:mysql://localhost/extracredit?createDatabaseIfNotExist=true" />
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost:3306/extracredit?createDatabaseIfNotExist=true" />
 			<property name="hibernate.connection.username" value="root" />
-			<property name="hibernate.connection.password" value=""/>
-			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.connection.password" value="" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create" />
 			<property name="hibernate.show_sql" value="true" />
 		</properties>
 	</persistence-unit>
-	
 </persistence>

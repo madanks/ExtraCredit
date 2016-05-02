@@ -30,13 +30,13 @@ public class Movie {
 	@Lob
 	private byte[] poster;
 	
-	@ManyToMany(mappedBy="movies")
+	@ManyToMany(mappedBy="directedmovies")
 	private List<Director> director;
 	
 	@OneToMany(mappedBy="movie")
 	private List<Comment> comments; 
 	
-	@ManyToMany(mappedBy="movies")
+	@ManyToMany(mappedBy="playedmovies")
 	private List<Artist> artist;
 	
 	@Enumerated(EnumType.STRING)
