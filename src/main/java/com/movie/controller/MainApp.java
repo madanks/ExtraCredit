@@ -1,39 +1,22 @@
 package com.movie.controller;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import java.util.Date;
 
+import com.movie.DAO.MovieDAOImpl;
+import com.movie.connection.ManageConnection;
+import com.movie.domain.Movie;
 
 public class MainApp {
-	
-	private static EntityManagerFactory emf;
 
 	static {
-		try {
-			emf = Persistence.createEntityManagerFactory("com.movie.domain");
-		} catch (Throwable ex) {
-			ex.printStackTrace();
-			throw new ExceptionInInitializerError(ex);
-		}
+		new ManageConnection();
 	}
 
-
 	public static void main(String[] args) {
-		
-		EntityManager em = emf.createEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		try {
-			tx.begin();
+		MovieDAOImpl mdi = new MovieDAOImpl();
+		Movie m = new Movie("Three Idiots", new Date());
+		mdi.save(m);
 
-
-			tx.commit();
-		} catch (Throwable e) {
-			if ((tx != null) && (tx.isActive())) tx.rollback();
-		} finally {
-			if ((em != null) && (em.isOpen())) em.close();
-		}
 	}
 
 }

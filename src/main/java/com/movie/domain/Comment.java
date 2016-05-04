@@ -17,7 +17,7 @@ public class Comment {
 	private int id;
 
 	private String comment;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date datetime;
 
@@ -28,5 +28,45 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name = "movie")
 	private Movie movie;
+
+	public int getId() {
+		return id;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public Date getDatetime() {
+		return datetime;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public Movie getMovie() {
+		return movie;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	public void setDatetime(Date datetime) {
+		this.datetime = datetime;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setMovie(Movie movie) {
+		this.movie = movie;
+	}
 
 }

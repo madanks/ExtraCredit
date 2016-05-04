@@ -17,4 +17,22 @@ public class Artist extends Person {
 	@OneToMany(mappedBy = "artist")
 	private List<ArtistCharacter> artistcharacters;
 
+	public List<Movie> getPlayedmovies() {
+		return playedmovies;
+	}
+
+	public List<ArtistCharacter> getArtistcharacters() {
+		return artistcharacters;
+	}
+
+	public void setPlayedmovies(List<Movie> playedmovies) {
+		this.playedmovies = playedmovies;
+	}
+
+	public void setArtistcharacters(List<ArtistCharacter> artistcharacters) {
+		this.artistcharacters = artistcharacters;
+	}
+	
+	
+
 }

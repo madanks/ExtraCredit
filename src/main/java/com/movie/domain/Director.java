@@ -13,6 +13,14 @@ public class Director extends Person {
 	@ManyToMany
 	@JoinTable(name="Director_Movie", joinColumns=@JoinColumn(name="directorId"), inverseJoinColumns=@JoinColumn(name="movieId"))
 	private List<Movie> directedmovies;
+
+	public List<Movie> getDirectedmovies() {
+		return directedmovies;
+	}
+
+	public void setDirectedmovies(List<Movie> directedmovies) {
+		this.directedmovies = directedmovies;
+	}
 	
 
 }
