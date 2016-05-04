@@ -2,6 +2,7 @@ package com.movie.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -21,13 +22,23 @@ public class Comment {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date datetime;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "user")
 	private User user;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "movie")
 	private Movie movie;
+
+	public Comment() {
+
+	}
+
+	public Comment(String comment, Date datetime, User user) {
+		this.comment = comment;
+		this.datetime = datetime;
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;

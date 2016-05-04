@@ -21,6 +21,17 @@ public abstract class Person {
 	private String email;
 	
 	private String phone;
+	
+	
+	public Person() {
+
+	}
+	public Person(String name, String address, String email, String phone) {
+		this.name = name;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+	}
 
 	public int getId() {
 		return id;

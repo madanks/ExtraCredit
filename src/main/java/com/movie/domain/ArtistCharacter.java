@@ -11,10 +11,19 @@ public class ArtistCharacter {
 	@Id
 	@GeneratedValue
 	private int charid;
-	
+
 	private String characterName;
-	
+
 	private String characterDescription;
+
+	public ArtistCharacter() {
+
+	}
+
+	public ArtistCharacter(String name, String description) {
+		characterName = name;
+		characterDescription = description;
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "artist")
@@ -52,5 +61,4 @@ public class ArtistCharacter {
 		this.artist = artist;
 	}
 
-	
 }

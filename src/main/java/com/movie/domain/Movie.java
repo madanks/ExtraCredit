@@ -3,6 +3,7 @@ package com.movie.domain;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -30,13 +31,13 @@ public class Movie {
 	@Lob
 	private byte[] poster;
 
-	@ManyToMany(mappedBy = "directedmovies")
+	@ManyToMany(mappedBy = "directedmovies", cascade = CascadeType.PERSIST)
 	private List<Director> director;
 
-	@OneToMany(mappedBy = "movie")
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.PERSIST)
 	private List<Comment> comments;
 
-	@ManyToMany(mappedBy = "playedmovies")
+	@ManyToMany(mappedBy = "playedmovies", cascade = CascadeType.PERSIST)
 	private List<Artist> artist;
 
 	@Enumerated(EnumType.STRING)
@@ -49,9 +50,16 @@ public class Movie {
 
 	}
 
-	public Movie(String name, Date year) {
+	public Movie(String name, Date year, List<Director> director, List<Comment> comments, List<Artist> artist, Rating rating,
+			Genre genre) {
+		super();
 		this.name = name;
 		this.year = year;
+		this.director = director;
+		this.comments = comments;
+		this.artist = artist;
+		this.rating = rating;
+		this.genre = genre;
 	}
 
 	public int getId() {
